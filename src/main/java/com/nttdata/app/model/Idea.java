@@ -45,15 +45,16 @@ public class Idea {
 
 	@Lob
 	private byte[] attachment;
+    private String attachmentName;
+    private String attachmentUri;
+    private String attachmentType;
 
 	private String ideaFor;
 	private String accSpecific;
 	private String location;
 	private String theme;
 	
-	@NotNull 
-	@Column(columnDefinition = "boolean default false")
-	private Boolean costBenefitDone;
+	private String costBenefitDone;
 	
     @PrePersist
     protected void onCreate() {
@@ -71,7 +72,7 @@ public class Idea {
 	public Idea(String title, String classification, String account, String hardwareReq, String softwareReq,
 			String problem, String solution, String benefit, String detailedDesc, String userId, String status,
 			byte[] attachment, String ideaFor, String accSpecific, String location, String theme,
-			boolean costBenefitDone) {
+			String costBenefitDone) {
 		super();
 		this.title = title;
 		this.classification = classification;
@@ -176,16 +177,16 @@ public class Idea {
 		return attachment;
 	}
 
+	public void setAttachment(byte[] attachment) {
+		this.attachment = attachment;
+	}
+	
 	public String getStatus() {
 		return status;
 	}
 
 	public void setStatus(String status) {
 		this.status = status;
-	}
-
-	public void setAttachment(byte[] attachment) {
-		this.attachment = attachment;
 	}
 
 	public String getIdeaFor() {
@@ -220,14 +221,52 @@ public class Idea {
 		this.theme = theme;
 	}
 
-	public boolean isCostBenefitDone() {
+	public String getCostBenefitDone() {
 		return costBenefitDone;
 	}
 
-	public void setCostBenefitDone(boolean costBenefitDone) {
+	public void setCostBenefitDone(String costBenefitDone) {
 		this.costBenefitDone = costBenefitDone;
+	}
+
+	public Date getCreated() {
+		return created;
+	}
+
+	public Date getUpdated() {
+		return updated;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public String getAttachmentName() {
+		return attachmentName;
+	}
+
+	public void setAttachmentName(String attachmentName) {
+		this.attachmentName = attachmentName;
+	}
+
+	public String getAttachmentUri() {
+		return attachmentUri;
+	}
+
+	public void setAttachmentUri(String attachmentUri) {
+		this.attachmentUri = attachmentUri;
+	}
+
+	public String getAttachmentType() {
+		return attachmentType;
+	}
+
+	public void setAttachmentType(String attachmentType) {
+		this.attachmentType = attachmentType;
 	}
 	
 	
+	
+
 
 }
