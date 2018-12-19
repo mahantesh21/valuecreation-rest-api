@@ -5,16 +5,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.nttdata.app.model.Customer;
 import com.nttdata.app.model.Idea;
-import com.nttdata.app.repository.CustomerRepository;
 import com.nttdata.app.repository.ValueCreationIdeaRepository;
 
 @SpringBootApplication
 public class ValuePortalRestDataApplication implements CommandLineRunner{
-
-	@Autowired
-	CustomerRepository customerRepository;
 	
 	@Autowired
 	ValueCreationIdeaRepository valueCreationIdeaRepository;
@@ -25,7 +20,6 @@ public class ValuePortalRestDataApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		customerRepository.save(new Customer("Firstname1", "Lastname1"));
-		valueCreationIdeaRepository.save(new Idea("Mahant Idea", "classification", "account", "hardwareReq", "softwareReq", "problem", "solution", "benefit", "detailedDesc", "userId", "status", null, "ideaFor", "accSpecific", "location", "theme", false));
+		valueCreationIdeaRepository.save(new Idea("Mahant Idea", "classification", "account", "hardwareReq", "softwareReq", "problem", "solution", "benefit", "detailedDesc", "userId", "status", null, "ideaFor", "accSpecific", "location", "theme", "yes"));
 	}
 }
