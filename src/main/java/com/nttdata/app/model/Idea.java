@@ -22,6 +22,10 @@ public class Idea {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String title;
+	private String classification;
+	private String account;
+	private String hardwareReq;
+	private String softwareReq;
 	private String problem;
 	private String solution;
 	private String benefit;
@@ -42,6 +46,15 @@ public class Idea {
 	@Lob
 	private byte[] attachment;
 
+	private String ideaFor;
+	private String accSpecific;
+	private String location;
+	private String theme;
+	
+	@NotNull 
+	@Column(columnDefinition = "boolean default false")
+	private Boolean costBenefitDone;
+	
     @PrePersist
     protected void onCreate() {
     	updated = created = new Date();
@@ -55,10 +68,16 @@ public class Idea {
 	public Idea() {
 	}
 	
-	public Idea(String title, String problem, String solution, String benefit, String detailedDesc, String userId,
-			String status, byte[] attachment) {
+	public Idea(String title, String classification, String account, String hardwareReq, String softwareReq,
+			String problem, String solution, String benefit, String detailedDesc, String userId, String status,
+			byte[] attachment, String ideaFor, String accSpecific, String location, String theme,
+			boolean costBenefitDone) {
 		super();
 		this.title = title;
+		this.classification = classification;
+		this.account = account;
+		this.hardwareReq = hardwareReq;
+		this.softwareReq = softwareReq;
 		this.problem = problem;
 		this.solution = solution;
 		this.benefit = benefit;
@@ -66,6 +85,11 @@ public class Idea {
 		this.userId = userId;
 		this.status = status;
 		this.attachment = attachment;
+		this.ideaFor = ideaFor;
+		this.accSpecific = accSpecific;
+		this.location = location;
+		this.theme = theme;
+		this.costBenefitDone = costBenefitDone;
 	}
 
 	public String getTitle() {
@@ -74,6 +98,38 @@ public class Idea {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	
+	public String getClassification() {
+		return classification;
+	}
+
+	public void setClassification(String classification) {
+		this.classification = classification;
+	}
+
+	public String getAccount() {
+		return account;
+	}
+
+	public void setAccount(String account) {
+		this.account = account;
+	}
+
+	public String getHardwareReq() {
+		return hardwareReq;
+	}
+
+	public void setHardwareReq(String hardwareReq) {
+		this.hardwareReq = hardwareReq;
+	}
+
+	public String getSoftwareReq() {
+		return softwareReq;
+	}
+
+	public void setSoftwareReq(String softwareReq) {
+		this.softwareReq = softwareReq;
 	}
 
 	public String getProblem() {
@@ -131,5 +187,47 @@ public class Idea {
 	public void setAttachment(byte[] attachment) {
 		this.attachment = attachment;
 	}
+
+	public String getIdeaFor() {
+		return ideaFor;
+	}
+
+	public void setIdeaFor(String ideaFor) {
+		this.ideaFor = ideaFor;
+	}
+
+	public String getAccSpecific() {
+		return accSpecific;
+	}
+
+	public void setAccSpecific(String accSpecific) {
+		this.accSpecific = accSpecific;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getTheme() {
+		return theme;
+	}
+
+	public void setTheme(String theme) {
+		this.theme = theme;
+	}
+
+	public boolean isCostBenefitDone() {
+		return costBenefitDone;
+	}
+
+	public void setCostBenefitDone(boolean costBenefitDone) {
+		this.costBenefitDone = costBenefitDone;
+	}
+	
+	
 
 }

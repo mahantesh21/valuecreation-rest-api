@@ -26,6 +26,6 @@ public class ValuePortalRestDataApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		customerRepository.save(new Customer("Firstname1", "Lastname1"));
-		valueCreationIdeaRepository.save(new Idea("Mahant Idea", "problem", "solution", "benefit", "detailedDesc", "Mahant", "submitted", null));
+		valueCreationIdeaRepository.save(new Idea("Mahant Idea", "classification", "account", "hardwareReq", "softwareReq", "problem", "solution", "benefit", "detailedDesc", "userId", "status", null, "ideaFor", "accSpecific", "location", "theme", false));
 	}
 }
