@@ -14,7 +14,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Column;
 
-
 @Entity
 public class Idea {
 
@@ -264,9 +263,5 @@ public class Idea {
 	public void setAttachmentType(String attachmentType) {
 		this.attachmentType = attachmentType;
 	}
-	
-	
-	
-
 
 }
